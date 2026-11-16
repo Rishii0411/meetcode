@@ -13,7 +13,7 @@ RUN ./mvnw -B clean package -DskipTests -DfinalName=app
 # Keep the runtime image smaller than the build image.
 FROM eclipse-temurin:21-jre
 WORKDIR /app
-COPY --from=build /app/target/meetcode-0.0.1-SNAPSHOT.jar app.jar
+COPY --from=build /app/target/app.war app.war
 
 EXPOSE 8080
-ENTRYPOINT ["java", "-jar", "app.jar"]
+ENTRYPOINT ["java", "-jar", "app.war"]
