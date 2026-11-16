@@ -1,0 +1,99 @@
+body:has(.site-footer) {
+  display: flex;
+  flex-direction: column;
+}
+
+body:has(.site-footer) > :not(.site-footer) { width: 100%; }
+body:has(.site-footer) > .site-footer { margin-top: auto; }
+
+/* ---------- Footer -------------------------------------------------------- */
+
+.site-footer {
+  flex: none;
+  width: 100%;
+  background: var(--bg);
+  border-top: 1px solid var(--border);
+  color: var(--text-2);
+  font-size: var(--fs-sm);
+}
+
+/* Breathing room above the footer when it follows content directly */
+body:not(:has(.site-footer)) .site-footer { margin-top: 48px; }
+
+.footer-inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--space-5);
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--space-8, 32px) var(--space-4) var(--space-5);
+}
+
+/* ---------- Brand --------------------------------------------------------- */
+
+.footer-brand-name {
+  display: inline-block;
+  font-size: var(--fs-md);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--text);
+}
+
+.footer-tagline {
+  margin-top: var(--space-1);
+  color: var(--text-2);
+}
+
+/* ---------- Links --------------------------------------------------------- */
+
+.footer-nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1) var(--space-6);
+  list-style: none;
+}
+
+.footer-nav a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 32px;
+  color: var(--text-2);
+  transition: color var(--t);
+}
+
+.footer-nav a:hover { color: var(--text); }
+
+/* ---------- Bottom bar ---------------------------------------------------- */
+
+.footer-bottom {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--space-4);
+  border-top: 1px solid var(--border);
+  font-size: var(--fs-xs);
+  color: var(--text-2);
+}
+
+/* ---------- Touch + responsive -------------------------------------------- */
+
+@media (pointer: coarse) {
+  .footer-nav a { min-height: 44px; }
+}
+
+@media (min-width: 720px) {
+  .footer-inner {
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    padding:var(--space-6) var(--space-6);
+  }
+
+  .footer-nav ul { justify-content: flex-end; }
+
+  .footer-bottom { padding: var(--space-4) var(--space-6); }
+}
+
+@media print {
+  .site-footer { display: none; }
+}

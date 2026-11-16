@@ -1,0 +1,439 @@
+.dashboard {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 32px 24px 64px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* ── Welcome ─────────────────────────────────────────────── */
+.welcome-section {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--border);
+}
+
+.welcome-section h1 {
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--text);
+  letter-spacing: -0.02em;
+}
+
+.welcome-section p {
+  font-size: 13px;
+  color: var(--text-2);
+}
+
+/* ── Streak Cards ────────────────────────────────────────── */
+.streak-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.streak-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 20px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+}
+
+.streak-icon {
+  font-size: 28px;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.streak-details {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.streak-details h3 {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-3);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.streak-details h1 {
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--text);
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+}
+
+.streak-details p {
+  font-size: 12px;
+  color: var(--text-2);
+}
+
+/* ── Activity Calendar ───────────────────────────────────── */
+.activity-calendar-container {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  padding: 20px 24px;
+}
+
+.activity-calendar-header {
+  margin-bottom: 16px;
+}
+
+.activity-calendar-header h2 {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 2px;
+}
+
+.activity-calendar-header p {
+  font-size: 12px;
+  color: var(--text-3);
+}
+
+/* JS-generated calendar structure */
+#activity-calendar {
+  overflow-x: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--border-2) transparent;
+}
+
+.calendar-layout {
+  display: flex;
+  gap: 4px;
+  min-width: max-content;
+}
+
+.weekday-labels {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  padding-top: 20px;
+}
+
+.weekday-labels span {
+  font-size: 10px;
+  color: var(--text-3);
+  height: 11px;
+  line-height: 11px;
+  width: 24px;
+  text-align: right;
+  padding-right: 4px;
+}
+
+.calendar-content {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.calendar-months {
+  display: grid;
+  gap: 3px;
+  min-height: 16px;
+}
+
+.calendar-months span {
+  font-size: 10px;
+  color: var(--text-3);
+  grid-row: 1;
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-rows: repeat(7, 11px);
+  grid-auto-flow: column;
+  gap: 3px;
+}
+
+.calendar-day,
+.calendar-day-placeholder,
+.calendar-month-spacer {
+  width: 11px;
+  height: 11px;
+  border-radius: 2px;
+}
+
+.calendar-day-placeholder {
+  background: transparent;
+}
+
+.calendar-month-spacer {
+  background: transparent;
+  width: 4px;
+}
+
+.calendar-day.inactive {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+}
+
+.calendar-day.active {
+  background: var(--accent);
+}
+
+.calendar-legend {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: 12px;
+  justify-content: flex-end;
+}
+
+.calendar-legend span {
+  font-size: 11px;
+  color: var(--text-3);
+}
+
+.legend-box {
+  width: 11px;
+  height: 11px;
+  border-radius: 2px;
+}
+
+.legend-box.inactive {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+}
+
+.legend-box.active {
+  background: var(--accent);
+}
+
+/* ── Stats Grid ──────────────────────────────────────────── */
+.stats-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.stat-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  padding: 18px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.stat-card h3 {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-3);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.stat-card h1 {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--text);
+  letter-spacing: -0.03em;
+  line-height: 1;
+}
+
+.stat-card p {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--text);
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+
+.stat-card h1.easy   { color: var(--easy); }
+.stat-card h1.medium { color: var(--medium); }
+.stat-card h1.hard   { color: var(--hard); }
+
+/* ── Recent Submissions ──────────────────────────────────── */
+.recent-submissions {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  overflow: hidden;
+}
+
+.recent-submissions h2 {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text);
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--border);
+}
+
+.recent-submissions table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.recent-submissions thead th {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-3);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 10px 20px;
+  text-align: left;
+  background: var(--surface-2);
+  border-bottom: 1px solid var(--border);
+}
+
+.recent-submissions tbody td {
+  padding: 11px 20px;
+  font-size: 13px;
+  color: var(--text-2);
+  border-bottom: 1px solid var(--border);
+  vertical-align: middle;
+}
+
+.recent-submissions tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.submission-row {
+  cursor: pointer;
+  transition: background var(--t);
+}
+
+.submission-row:hover {
+  background: var(--surface-2);
+}
+
+.submission-row td:first-child span {
+  color: var(--text);
+  font-weight: 500;
+}
+
+/* Difficulty badge in table */
+.difficulty-badge {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: var(--r-sm);
+  font-size: 11px;
+  font-weight: 500;
+}
+
+.difficulty-badge.easy   { color: var(--easy);   background: var(--easy-bg); }
+.difficulty-badge.medium { color: var(--medium); background: var(--medium-bg); }
+.difficulty-badge.hard   { color: var(--hard);   background: var(--hard-bg); }
+
+/* Verdict badge */
+.verdict-badge {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: var(--r-sm);
+  font-size: 11px;
+  font-weight: 500;
+}
+
+.verdict-badge.accepted {
+  color: var(--easy);
+  background: var(--easy-bg);
+}
+
+.verdict-badge.wrong-answer,
+.verdict-badge.wrong_answer {
+  color: var(--hard);
+  background: var(--hard-bg);
+}
+
+.verdict-badge.time-limit-exceeded,
+.verdict-badge.time_limit_exceeded {
+  color: var(--medium);
+  background: var(--medium-bg);
+}
+
+.verdict-badge.compilation-error,
+.verdict-badge.runtime-error {
+  color: var(--text-2);
+  background: var(--surface-3);
+}
+
+/* ── Profile Card ────────────────────────────────────────── */
+.profile-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.profile-card h2 {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text);
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--border);
+}
+
+.profile-card p {
+  font-size: 13px;
+  color: var(--text-2);
+  display: flex;
+  gap: 8px;
+}
+
+.profile-card p strong {
+  color: var(--text-3);
+  font-weight: 500;
+  min-width: 72px;
+}
+
+/* ── Action Button ───────────────────────────────────────── */
+.action-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  align-self: flex-start;
+  padding: 9px 20px;
+  background: var(--accent);
+  color: #09090b;
+  border-radius: var(--r-md);
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background var(--t);
+}
+
+.action-button:hover {
+  background: #a5b4fc;
+}
+
+/* ── Responsive ──────────────────────────────────────────── */
+@media (max-width: 700px) {
+  .streak-container {
+    grid-template-columns: 1fr;
+  }
+
+  .stats-container {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .welcome-section {
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .recent-submissions table {
+    font-size: 12px;
+  }
+
+  .recent-submissions thead th,
+  .recent-submissions tbody td {
+    padding: 9px 12px;
+  }
+}

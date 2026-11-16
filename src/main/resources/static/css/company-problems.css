@@ -1,0 +1,238 @@
+.company-page {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: var(--space-5) var(--space-4) 48px;   /* overrides home.css `main` padding */
+}
+
+/* ---------- Header -------------------------------------------------------- */
+
+.company-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--space-4);
+  padding-bottom: var(--space-5);
+  border-bottom: 1px solid var(--border);
+}
+
+.company-heading { min-width: 0; }
+
+.company-heading h1 {
+  font-size: clamp(20px, 18px + 0.8vw, 26px);
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: -0.025em;
+  overflow-wrap: anywhere;
+}
+
+.company-heading p {
+  margin-top: var(--space-1);
+  font-size: var(--fs-sm);
+  color: var(--text-2);
+}
+
+.company-total {
+  flex: none;
+  text-align: right;
+}
+
+.company-total span {
+  display: block;
+  font-size: var(--fs-xs);
+  color: var(--text-2);
+}
+
+.company-total h2 {
+  font-size: 26px;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+/* ---------- Difficulty stats --------------------------------------------- */
+
+.company-stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-2);
+}
+
+.stat-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  padding: var(--space-3) var(--space-4);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+}
+
+.stat-card span {
+  font-size: var(--fs-sm);
+  font-weight: 500;
+}
+
+.stat-card h2 {
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--text);
+}
+
+.easy-stat span   { color: var(--easy); }
+.medium-stat span { color: var(--medium); }
+.hard-stat span   { color: var(--hard); }
+
+/* ---------- Problem section (toolbar + list) ------------------------------ */
+
+.company-problem-section {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--space-3);
+}
+
+.company-problem-heading {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-3);
+}
+
+.company-problem-heading h2 {
+  font-size: var(--fs-md);
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+
+.company-problem-heading span {
+  flex: none;
+  font-size: var(--fs-sm);
+  color: var(--text-2);
+}
+
+/* Filter pills */
+
+.difficulty-filters {
+  display: flex;
+  gap: var(--space-2);
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.difficulty-filters::-webkit-scrollbar { display: none; }
+
+.difficulty-filter {
+  flex: none;
+  padding: 6px 14px;
+  border: 1px solid var(--border);
+  border-radius: var(--r-pill);
+  background: transparent;
+  color: var(--text-2);
+  font-size: var(--fs-sm);
+  font-weight: 500;
+  line-height: 1.4;
+  cursor: pointer;
+  transition: background var(--t), color var(--t), border-color var(--t);
+}
+
+.difficulty-filter:hover {
+  background: var(--surface-2);
+  color: var(--text);
+  border-color: var(--border-2);
+}
+
+.difficulty-filter.active {
+  color: var(--accent);
+  background: var(--accent-dim);
+  border-color: color-mix(in srgb, var(--accent) 40%, transparent);
+}
+
+.difficulty-filter.active[data-difficulty="easy"]   { color: var(--easy);   background: var(--easy-bg);   border-color: color-mix(in srgb, var(--easy) 40%, transparent); }
+.difficulty-filter.active[data-difficulty="medium"] { color: var(--medium); background: var(--medium-bg); border-color: color-mix(in srgb, var(--medium) 40%, transparent); }
+.difficulty-filter.active[data-difficulty="hard"]   { color: var(--hard);   background: var(--hard-bg);   border-color: color-mix(in srgb, var(--hard) 40%, transparent); }
+
+/* Search + sort */
+
+.company-problem-search,
+.company-problem-sort { min-width: 0; }
+
+.company-problem-sort {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.company-problem-sort label {
+  flex: none;
+  font-size: var(--fs-sm);
+  color: var(--text-2);
+}
+
+.company-problem-sort select {
+  flex: 1;
+  min-width: 0;
+  padding-right: 32px;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23a1a1aa' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+}
+
+/* Empty state (company has no problems) */
+
+.no-company-problems {
+  padding: 48px var(--space-6);
+  text-align: center;
+  font-size: var(--fs-sm);
+  color: var(--text-2);
+}
+
+/* Rows: comfortable touch targets */
+@media (pointer: coarse) {
+  .company-page .problem-row { min-height: 48px; }
+  .difficulty-filter { padding: 10px 16px; }
+}
+
+/* ==========================================================================
+   Responsive
+   ========================================================================== */
+
+/* Small phones */
+@media (max-width: 479.98px) {
+  .company-header { align-items: flex-start; }
+  .company-total h2 { font-size: 22px; }
+  .stat-card { padding: var(--space-3); }
+  .stat-card h2 { font-size: 20px; }
+  .company-problem-sort { flex-direction: column; align-items: stretch; gap: var(--space-1); }
+}
+
+/* Tablet and up: one toolbar row  [ filters | search | sort ] */
+@media (min-width: 720px) {
+  .company-page { padding: 28px var(--space-6) 64px; gap: 28px; }
+
+  .company-problem-section {
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    align-items: center;
+    column-gap: var(--space-3);
+  }
+
+  .company-problem-heading { grid-column: 1 / -1; }
+  .problem-list,
+  .no-company-problems     { grid-column: 1 / -1; }
+
+  .company-problem-sort select { flex: none; width: 190px; }
+
+  .stat-card { padding: var(--space-4) var(--space-5); }
+  .stat-card h2 { font-size: 26px; }
+}
+
+/* Large screens */
+@media (min-width: 1400px) {
+  .company-page { max-width: 1040px; }
+}
