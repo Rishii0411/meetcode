@@ -33,6 +33,7 @@ public class SecurityConfig {
                                 "/",
                                 "/register",
                                 "/login",
+                                "/error",
                                 "/css/**",
                                 "/js/**",
                                 "/**/*.png",
@@ -89,6 +90,9 @@ public class SecurityConfig {
 
                 .formLogin(form -> form
                         .loginPage("/login")
+                        .loginProcessingUrl("/login")
+                        .defaultSuccessUrl("/", true)
+                        .failureUrl("/login?error")
                         .permitAll()
                 )
 
